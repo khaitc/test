@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Icecream.Models.Customer>
+
+@{
+    ViewBag.Title = "ListCustomer";
+}
+
+<h2>ListCustomer</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customer_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customer_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.from_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.to_date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.from_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.to_date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Update", new {  id=item.customer_id  }) |
+            @Html.ActionLink("Details", "Details", new { id = item.customer_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.customer_id })
+        </td>
+    </tr>
+}
+
+</table>

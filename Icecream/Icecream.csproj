@@ -47,6 +47,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
@@ -126,10 +127,32 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RecipeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\BookBLL.cs" />
+    <Compile Include="Models\BookFeedback.cs" />
+    <Compile Include="Models\BookFeedbackBLL.cs" />
+    <Compile Include="Models\BookOrder.cs" />
+    <Compile Include="Models\BookOrderBLL.cs" />
+    <Compile Include="Models\BookOrderDetails.cs" />
+    <Compile Include="Models\BookOrderDetailsBLL.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerBLL.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeBLL.cs" />
+    <Compile Include="Models\Flavor.cs" />
+    <Compile Include="Models\FlavorBLL.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\PaymentBLL.cs" />
+    <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Models\RecipeBLL.cs" />
+    <Compile Include="Models\RecipeFeedback.cs" />
+    <Compile Include="Models\RecipeFeedbackBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -168,10 +191,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
+    <Content Include="Views\Customer\ListCustomer.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Recipe\ListRecipe.cshtml" />
+    <Content Include="Views\Recipe\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
