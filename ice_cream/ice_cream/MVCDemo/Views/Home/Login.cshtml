@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@model ice_cream.Models.Category
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div>
+       @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+       {
+        <table>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.CategoryId)
+                </td>
+                <td>
+                    @Html.TextBoxFor(a => a.CategoryId, "Usern")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.CategoryName)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.CategoryName, "Passwr")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+            </tr>
+        </table>
+          
+
+       }
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/vendor/font-awesome.css" rel="stylesheet" />
+    <link href="/Content/vendor/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/template.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="1.html"><img src="images/logo2.png" alt="logo"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Brands</a></li>
+                    <li><a href="#">Range Of Cars</a></li>
+                    <li><a href="#">PreOwned Car</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav> <!-- end menu -->
+    <!-- slide anh -->
+    <div class="container bodyContent">
+        <!-- chinh sua o day -->
+        @RenderBody()
+
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About us -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-item clearfix">
+                        <h2 class="title">Contact Us</h2>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printing and typesetting
+                        </p>
+                        <ul class="personal-info">
+                            <li>
+                                <i class="fa fa-map-marker"></i>
+                                Address: TP Cao Bằng Tỉnh Cao Bằng Việt Nam
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope"></i>
+                                Email:<a href="mailto:khaitc.michn@gmail.com">info@carvan.com</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                Phone: <a href="tel:+55-417-634-7071">+84 XXX 812 912</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-fax"></i>
+                                Fax: +84 4XX-634-7071
+                            </li>
+                        </ul>
+                    </div>
+                </div> <!-- end About us -->
+                <!-- Links -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-item clearfix">
+                        <h2 class="title">Links</h2>
+                        <ul class="links">
+                            <li>
+                                <a href="1.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="1.html">About Us</a>
+                            </li>
+                            <li>
+                                <a href="1.html">Car Listing</a>
+                            </li>
+                            <li>
+                                <a href="1.html">Car Grid</a>
+                            </li>
+                            <li>
+                                <a href="1.html">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="1.html">Blog</a>
+                            </li>
+                            <li>
+                                <a href="1.html">Car Details</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div> <!-- end Links -->
+                <!-- Tags -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-item clearfix">
+                        <h2 class="title">Tags</h2>
+                        <div class="tags">
+                            <a href="#">Cars</a>
+                            <a href="#">Cars Dealer</a>
+                            <a href="#">Car Template</a>
+                            <a href="#">Dealer</a>
+                            <a href="#">Auto Car</a>
+                            <a href="#">Automobile</a>
+                            <a href="#">Vehicles</a>
+                            <a href="#">Journey</a>
+                            <a href="#">Car Selling</a>
+                            <a href="#">Car Dealing</a>
+                            <a href="#">Car Website</a>
+                            <a href="#">Car Template</a>
+                            <a href="#">HTML Template</a>
+                        </div>
+                    </div>
+                </div> <!-- end Tags -->
+               
+            </div>
+        </div>
+    </div>
+    <script src="~/Content/vendor/bootstrap.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        let setHeight = () => {
+            let height = $('.bodyContent').height();
+            if (height < document.body.offsetHeight - 400 - 75) {
+                $('.footer').addClass('footer-fixed')
+            }
+        }
+        $(document).ready(function () {
+            setHeight()
+        })
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

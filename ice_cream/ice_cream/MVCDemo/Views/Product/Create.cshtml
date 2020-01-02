@@ -1,0 +1,103 @@
+﻿@model ice_cream.Models.Product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>Create</title>
+</head>
+<body  class="container col-md-6">
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        
+    <div class="form-horizontal">
+        <h4>Product</h4>
+        <hr />
+        <b> @Html.ValidationSummary(true, "", new { @class = "text-danger" })</b>
+        <br />
+        <div class="form-group">
+            <b>@Html.Label("Tên Danh Mục") </b>
+            <div class="col-md-10">
+                @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <b>@Html.Label("Nhà Cung Cấp") </b>
+            <div class="col-md-10">
+                @Html.DropDownList("SupplierID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <b>  @Html.Label("Tên Sản Phẩm")</b>
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+
+            <b>  @Html.Label("Khối Lượng")</b>
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => model.QuantityPerUnit, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QuantityPerUnit, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <b>  @Html.Label("Giá")</b>
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <b>  @Html.Label("Số lượng")</b>
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => model.UnitsInStock, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UnitsInStock, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <b>  @Html.Label("Khuyến mại")</b>
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => model.Discontinued, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Discontinued, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-primary" value="Create" style="margin-top:10px;">Thêm mới</button>
+            </div>
+        </div>
+    </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

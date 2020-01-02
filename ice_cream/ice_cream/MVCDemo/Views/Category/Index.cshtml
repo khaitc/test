@@ -1,0 +1,97 @@
+﻿
+@model PagedList.IPagedList<ice_cream.Models.Category>
+@using PagedList.Mvc;
+@{
+    Layout = null;
+
+}
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>Danh sách danh mục</title>
+</head>
+<body>
+    <div class="container ">
+        <div class="col-l-12 col-md-12 ">
+            <h2>Danh sách danh mục</h2>
+
+            @using (Html.BeginForm("index", "Category", FormMethod.Get))
+            {
+                <div class="form-group">
+                    <input type="text" class="form-control" id="srh" name="Search">
+                    <button type="submit" class="btn btn-primary" value="Search">Tìm kiếm</button>
+                </div>
+
+            }
+            <div>
+                <label> Tổng số danh mục:@ViewBag.count</label>
+
+            </div>
+            <a href="/Category/Create" class="btn btn-info">Thêm mới</a>
+            <div class="row">
+
+                <table class="table table-bordered table-striped table-hover" id="dev-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên Danh Mục</th>
+                            <th>Mô tả</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+
+                        {
+                            <tr>
+                                <td>
+                                    @item.CategoryId
+                                </td>
+                                <td>
+                                    @item.CategoryName
+                                </td>
+                                <td>
+                                    @item.Description
+                                </td>
+                                <td>
+                                    <button type="submit" class="alert-dark"> @Html.ActionLink("Sửa", "Edit", new { id = item.CategoryId })</button>
+                                    <button type="submit" class="alert-dark"> @Html.ActionLink("Chi tiết", "Get", new { id = item.CategoryId })</button>
+                                    <button type="submit" class="alert-dark" onclick="return confirmationMessage()">@Html.ActionLink("Xóa", "Delete", new { id = item.CategoryId })</button>
+
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            
+            <br>
+            
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+            @Html.PagedListPager( Model, page => Url.Action("Index", new { page }))
+        </div>
+
+
+    </div>
+    <script type="text/javascript">
+        function confirmationMessage() {
+            if (confirm('Bạn có chắc chắn muốn xóa bản ghi này?')) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+
+ * {
+ margin:0;
+ padding:0;
+}
+ body{
+     overflow:auto;
+     height:100vh;
+ }
+.foot li{
+  list-style: none;
+  float:left;
+  margin-right:15px;
+  padding-top:15px;
+  padding-bottom: 15px;
+}
+
+ .anhslide{
+  width: 100%;
+ }
+.sea{
+  padding-top:18px;
+  padding-left:500px;
+}
+.navbar-default{
+  margin-bottom: 0px;
+  height: 75px;
+  background-color:rgba(119,136,153,0.3)
+}
+.carousel-caption .btn{
+  color:white;
+  background-color:#ffb400;
+  margin-right:15px;
+  
+}
+.navbar-brand > img{
+  height:75px;
+  margin-top:-10px;
+}
+.navbar-nav > li{
+  font-size: 15px;
+  padding-top:15px;
+  margin-right:25px;
+}
+.navbar-fixed-top{
+  border:none;
+}
+.thumbnail{
+  border:none;
+}
+
+/*CSS cua Quan*/
+
+.navbar-default .navbar-nav > li > a{
+  color: white;
+  font-weight: 600;
+}
+.footer{
+  background: black;
+  font-family: lato;
+  font-size: 15px;
+  color:grey;
+  height:400px;
+  width:100%;
+}
+.title{
+  padding:25px 0px ;
+  border-bottom: 1px solid grey;
+  color:lightgrey;
+  margin-bottom: 25px;
+}
+.personal-info{
+  list-style: none;
+}
+.personal-info li{
+  padding: 10px 0px;
+}
+.personal-info i{
+  font-size: 18px;
+  color: grey;
+  margin-right: 20px;
+  float: left;
+  width: 20px;
+}
+.footer a{
+  color: grey;
+}
+.links li{
+  list-style: none;
+  font-size: 15px;
+  padding-bottom: 15px; 
+  letter-spacing: 0.5px;
+}
+.tags a{
+  float: left;
+  margin: 0 7px 7px 0;
+  border: 1px solid #353535;
+  padding: 6px 15px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: grey;
+  border-radius: 2px;
+  text-decoration: none;
+}
+.footer-fixed {
+    position: fixed;
+    height: 400px;
+    top: calc(100% - 400px);
+}

@@ -1,0 +1,42 @@
+﻿@model ice_cream.Models.Category
+
+@{
+                /**/
+
+                Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>Details</title>
+</head>
+<body class="container">
+    <div class="container-fluid col-md-6">
+        <h4>Category</h4>
+        <hr />
+        <table>
+            <tr>
+                <th>@Html.Label("Tên Danh Mục")</th>
+                <td>@Html.DisplayFor(model => model.CategoryName)</td>
+            </tr>
+            <tr>
+                <th>@Html.Label("Mô tả")</th>
+                <td>@Html.DisplayFor(model => model.Description)</td>
+            </tr>
+        </table>
+
+        <p>
+            <button type="submit" class="btn btn-default">
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.CategoryId })
+            </button>
+            <a href="/Category/Index" class="btn btn-default">Quay về trang chủ</a>
+        </p>
+    </div>
+</body>
+</html>

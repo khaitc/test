@@ -1,0 +1,60 @@
+﻿@model ice_cream.Models.Category
+
+@{
+                /**/
+
+                Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>Edit</title>
+</head>
+<body class="container col-md-8">
+    @using (Html.BeginForm("Edit", "Category", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal col-md-6">
+            <h4>Sửa Tên Danh Mục</h4>
+            @ViewBag.name
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.CategoryId)
+
+            <div class="form-group">
+                <b>@Html.Label("Tên Danh Mục") </b>
+                <div class="col-md-10">
+                    @Html.ValidationMessage("Loitrungten", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <b> @Html.Label("Mô tả")</b>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lưu" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        <a href="/Category/Index" class="btn btn-default">Quay về trang chủ</a>
+    </div>
+</body>
+</html>

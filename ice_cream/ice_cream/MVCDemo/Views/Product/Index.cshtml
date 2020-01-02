@@ -1,0 +1,140 @@
+﻿
+@model PagedList.IPagedList<ice_cream.Models.Product>
+@using PagedList.Mvc;
+
+@{
+    /**/
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Index</title>
+</head>
+<body class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("index", "product", FormMethod.Post, new { @class = "form-inline" }))
+            {
+                <div class="col-md-3 col-sm-6">
+                    <input type="text" class="form-control" style="width:100%" id="srh" name="Search" placeholder="Tìm kiếm...." value=@ViewBag.search>
+                </div>
+                <div class="col-md-2 col-sm-6">
+
+                    @Html.DropDownList("CategoryId",null, htmlAttributes: new { @class = "form-control" })
+                </div>
+                <div class="col-md-3 col-sm-6">
+
+                    @Html.DropDownList("SupplierID",null ,htmlAttributes: new { @class = "form-control" })
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <button type="submit" class="btn btn-primary" value="Search">Tìm kiếm</button>
+                </div>
+            }
+        </div>
+
+
+    </div>
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <nav class="col-lg-12 col-md-12 col-xs-12">
+                <a href="/Product/Create" class="btn btn-info" style="margin-top:10px;">Thêm mới</a>
+                <table class="table table-bordered table-striped table-hover" id="dev-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID Sản Phẩm</th>
+                            <th>Nhà Cung Cấp</th>
+                            <th> Danh Mục</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Khối Lượng</th>
+                            <th>Giá</th>
+                            <th>Số Lượng</th>
+                            <th>Khuyến Mại</th>
+
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+
+                        {
+                            <tr>
+                                <td>
+                                    @item.ProductID
+                                </td>
+                                <td>
+                                    @item.Suppliers.CompanyName
+                                </td>
+                                <td>
+                                    @item.Category.CategoryName
+                                <td>
+                                    @item.ProductName
+                                </td>
+                                <td>@item.QuantityPerUnit</td>
+                                <td>@item.UnitPrice</td>
+                                <td>@item.UnitsInStock</td>
+                                <td>
+                                    @if (item.Discontinued == true)
+                                    {
+                                        @Html.Label("Có")
+
+
+                                    }
+                                    else
+                                    {
+                                        @Html.Label("Không")
+                                    }
+
+
+
+
+
+                                </td>
+
+                                <td>
+                                    <button type="button" class="alert-dark"> @Html.ActionLink("Sửa", "Edit", new { id = item.ProductID })</button>
+                                    <button type="button" class="alert-dark"> @Html.ActionLink("Chi tiết", "Details", new { id = item.ProductID })</button>
+                                    <button type="button" class="alert-dark" onclick="return confirmationMessage()">@Html.ActionLink("Xóa", "Delete", new { id = item.ProductID })</button>
+
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </nav>
+        </div>
+    </div>
+    <div class="page-bottom">
+
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+
+
+    <script type="text/javascript">
+        function confirmationMessage() {
+            if (confirm('Bạn có chắc chắn muốn xóa bản ghi      ?')) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+
+</body>
+</html>
